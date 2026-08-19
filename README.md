@@ -36,40 +36,50 @@ The final report is Lighthouse-inspired, but the score is a risk/coverage indica
 
 ```text
 .
-├── SKILL.md                         # Agent instructions and mandatory workflow
+├── SKILL.md                              # Agent instructions and mandatory workflow
 ├── README.md
 ├── CONTRIBUTING.md
 ├── rules/
-│   ├── README.md                    # Country rule-pack contract
+│   ├── README.md                         # Country rule-pack contract
 │   └── nepal/
-│       ├── README.md                # Nepal source hierarchy and scope
-│       └── ecommerce-act-2081.md    # Nepal Act audit checks
+│       ├── README.md                     # Nepal source hierarchy and scope
+│       ├── ecommerce-act-2081.md         # Nepal Act audit checks
+│       └── ecommerce-directive-2082.md   # Nepal Directive operational checks
 └── templates/
-    └── audit-report.md              # Required report shape
+    └── audit-report.md                   # Required report shape
 ```
 
 ## Nepal support
 
-The first rule pack maps the Electronic Commerce Act, 2081 (2025) into auditable checks for:
+The Nepal pack now combines:
+
+- **Electronic Commerce Act, 2081 (2025)** — detailed clause-level `NP-ECA-*` audit rules.
+- **Electronic Commerce (E-Commerce) Directive, 2082** — `NP-ECD-2082-*` operational audit rules covering confirmed implementation requirements while preserving an explicit source-verification boundary for Directive clause numbering.
+
+Together they cover areas including:
 
 - business and platform identity disclosures
-- Department e-commerce listing
+- Department e-commerce listing and listing updates
 - product/service disclosures
 - electronic contracts
-- payment receipts and invoices
+- payment gateways, receipts, electronic invoices, and failed-payment refunds
 - delivery commitments
 - returns, exchanges, and refunds
-- personal-information confidentiality
+- personal-information confidentiality and security controls
+- incident response and transaction suspension/recovery
 - licensed/restricted goods and services
 - intermediary marketplace duties
 - list-based/first-party commerce duties
 - seller duties
 - transportation/delivery responsibility
-- unfair trade practices
-- grievance handling
-- monitoring and evidence readiness
+- unfair and misleading trade/advertising practices
+- grievance handling and escalation
+- transaction/invoice record retention
+- monitoring, inspection, and evidence readiness
 
-The Department of Commerce, Supplies and Consumer Protection has also published an E-Commerce Directive, 2082. Until its operative text is incorporated and reviewed in this repository, the skill must not represent an Act-only audit as complete compliance with every current Nepal e-commerce requirement.
+The official government publication pages confirm the Directive, but the first repository mapping could not directly machine-read the complete attached Directive text. The Directive rule file therefore does not invent clause numbers or penalties: it records its verification status and distinguishes corroborated operational requirements from items that still require direct official-clause verification.
+
+An audit must preserve that source-status disclosure and must not present the project as regulator certification or as a complete audit of every Nepal consumer, tax, payment, privacy, cybersecurity, or sector-specific law.
 
 ## Usage
 
