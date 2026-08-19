@@ -160,9 +160,10 @@ When the user requests fixes:
 
 ## Nepal-specific invocation
 
-When Nepal is in scope, load:
+When Nepal is in scope, load in this order:
 
-- `rules/nepal/README.md`
-- `rules/nepal/ecommerce-act-2081.md`
+1. `rules/nepal/README.md`
+2. `rules/nepal/ecommerce-act-2081.md`
+3. `rules/nepal/ecommerce-directive-2082.md`
 
-Treat the Act checks as the current implemented baseline in this repository. Follow any freshness warning in the Nepal README before representing the audit as complete current-law coverage.
+Keep Act and Directive findings separately traceable. Treat the Act mapping as clause-level authoritative for the implemented Act scope. Treat Directive rules according to the source-verification status documented in `rules/nepal/README.md` and `ecommerce-directive-2082.md`; do not invent Directive clause numbers or penalties, and do not represent the audit as regulator certification or complete coverage of every Nepal law.
