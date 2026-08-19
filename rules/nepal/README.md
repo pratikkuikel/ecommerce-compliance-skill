@@ -1,10 +1,13 @@
 # Nepal E-Commerce Rule Pack
 
-## Implemented baseline
+## Implemented legal sources
 
-This pack currently implements auditable requirements from Nepal's **Electronic Commerce Act, 2081 (2025)**.
+This pack currently implements auditable requirements from:
 
-Source metadata used for the Act baseline:
+1. Nepal's **Electronic Commerce Act, 2081 (2025)** — fully mapped from the Act text into stable `NP-ECA-*` audit rules.
+2. Nepal's **Electronic Commerce (E-Commerce) Directive, 2082** — implemented as a verified-interim operational mapping using stable `NP-ECD-2082-*` rule IDs.
+
+### Act source metadata
 
 - Title: Electronic Commerce Act, 2081 (2025)
 - Act No.: 13 of the Year 2081 (2025)
@@ -17,21 +20,27 @@ Official Department source page:
 
 - https://doc.gov.np/content/324/electronic-business--e-commerce--act--2081/
 
-## Important current-law freshness warning
+### Directive source metadata and verification status
 
-The Department of Commerce, Supplies and Consumer Protection has published **Electronic Commerce (E-Commerce) Directive, 2082**.
+The Ministry of Industry, Commerce and Supplies and the Department of Commerce, Supplies and Consumer Protection publish the **Electronic Commerce (E-Commerce) Directive, 2082**.
 
-Official Department source page:
+Official publication pages:
 
-- https://doc.gov.np/content/338/electronic-business--e-commerce--directory--2082/
+- Ministry: https://moics.gov.np/content/13547/electronic-business--e-commerce--directory--2082/
+- Department: https://doc.gov.np/content/338/electronic-business--e-commerce--directory--2082/
 
-The Department also operates e-commerce listing services and has published notices/manuals relating to electronic-commerce listing.
+The Directive is mapped in `ecommerce-directive-2082.md` as a **verified-interim operational rule pack**. The government publication pages confirm the Directive, but the full attached Directive text was not machine-readable in the repository-maintenance environment used for the first mapping. For that reason:
 
-**Repository status:** the operative text of the Directive, 2082 has not yet been fully mapped into this rule pack. Therefore an audit using only `ecommerce-act-2081.md` must be labeled:
+- the pack does not invent Directive section/clause numbers;
+- requirements that cannot yet be tied to a directly reviewed official clause are labeled accordingly;
+- explicit Act penalties remain separately traceable to the Act;
+- uncertain or access-dependent requirements use `MANUAL_VERIFICATION` rather than unsupported `FAIL` findings.
 
-> Act 2081 baseline audit — current Nepal implementation directives may add or clarify requirements.
+Until the complete official Directive attachment has been reviewed clause by clause, reports using this pack should identify their source status as:
 
-Do not call an Act-only result `fully compliant with all current Nepal e-commerce law` until the Directive and any other applicable current instruments have been incorporated and reviewed.
+> Nepal Electronic Commerce Act 2081 + Directive 2082 operational audit — Directive clause-level source verification remains pending for interim Directive rules.
+
+This is still more complete than an Act-only audit, but it must not be represented as regulator certification or as a complete audit of every Nepal consumer, tax, privacy, payment, cyber, or sector-specific law.
 
 ## Business-role model used by this pack
 
@@ -52,19 +61,25 @@ The Act defines an electronic platform broadly enough to include systems using w
 
 ## Penalty mapping used by the auditor
 
-Do not infer penalties from severity labels. The implemented rule file uses the Act's explicit offence mapping:
+Do not infer penalties from severity labels. The Act rule file uses the Act's explicit offence mapping:
 
 - **Section 22 tier** — offences under Section 21(a), (b), (c), or (d): inspection-officer fine of NPR 20,000 to NPR 100,000 depending on gravity.
 - **Section 23 tier** — offence under Section 21(e): NPR 50,000 to NPR 500,000, or imprisonment from 6 months to 3 years, or both, depending on gravity.
 
-Other duties may be enforceable through other provisions or prevailing laws. Unless a direct penalty mapping is present in the source, report the duty without inventing a penalty.
+The Directive may add procedures, timelines, monitoring expectations, and operational duties. Do not turn those into a new monetary or imprisonment penalty unless an authoritative source expressly supports it. Where a Directive requirement also violates an Act offence provision, report the Act consequence through the corresponding `NP-ECA-*` rule.
 
 ## Related-law boundary
 
 Section 31 of the Act states that, unless otherwise provided in the Act, matters including quality, labeling, return grounds/procedure, pricing, inspection/monitoring, dispute resolution, compensation, and consumer rights are governed by prevailing consumer-protection law and apply to electronically traded goods/services.
 
-This means the current pack is **not a complete Nepal consumer-law audit**. A future Nepal pack can add Consumer Protection Act/Regulation checks as separate sourced rules.
+The Nepal pack therefore is **not a complete Nepal consumer-law or technology-law audit**. Additional country modules may later cover Consumer Protection law, payment regulation, tax law, privacy/data protection, cybersecurity, sector licensing, and other prevailing laws as separate sourced rule packs.
 
-## Audit file
+## Audit load order
 
-Load `ecommerce-act-2081.md` after this README.
+When Nepal is in scope, load these files in order:
+
+1. `rules/nepal/README.md`
+2. `rules/nepal/ecommerce-act-2081.md`
+3. `rules/nepal/ecommerce-directive-2082.md`
+
+Keep Act and Directive findings separately traceable in the final report.
